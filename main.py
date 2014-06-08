@@ -202,6 +202,13 @@ class BlogPermalinkHandler(PageHandler):
 		except:
 			self.pageError()
 
+	def post(self, resource):
+		action = self.request.get('actionType')
+		blog = Blog.get_by_id(int(resource), parent=self.user.key)
+		if action == "delete":
+			blog.key.delete()
+			self.redirect('/myBlog')
+
 class MyGalleryHandler(PageHandler):
 	def get(self):
 		try:
@@ -218,6 +225,17 @@ class ImagePermalinkHandler(PageHandler):
 			self.render('imagePermalink.html', username=self.user.username, pic=pic)
 		except:
 			self.pageError()
+
+	def post(self, resource):
+		action = self.request.get('actionType')
+	#	key = self.request.get('postKey')
+		pic = Picture.get_by_id(int(resource), parent=self.user.key)
+		if action == "delete":
+			blobKey = pic.blobKey
+			blobInfo = blobstore.BlobInfo.get(blobKey)
+			blobInfo.delete()
+			pic.key.delete()
+			self.redirect('/myGallery')
 
 class ImageUploadHandler(blobstore_handlers.BlobstoreUploadHandler, PageHandler):
 	def post(self):

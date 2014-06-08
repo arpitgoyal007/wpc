@@ -12,5 +12,11 @@
 	<div class="post-content">
 		<pre>{{blog.content | safe}}</pre>
 	</div>
+	<div class="post-action">
+		<form method="post">
+			<input type="hidden" name="actionType" value="delete">
+			<div><input type="submit" value="Delete"></div>
+		</form>
+	</div>
 </div>
 {%endblock%}
