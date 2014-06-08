@@ -7,21 +7,29 @@
   		{%endblock%}
 	</head>
 	<body>
-		<div class="headerbar">
-			<div class="header">
-				<h1><a href="/home">{{username}}</a></h1>
+		<div class="navbar">
+			<div class="logo">
+				<a href="/home"><img src="/Images/wpc_logo.png" alt="logo"></a>
 			</div>
-			<ul class="action">
+			<ul class="wpc-nav">
 				<li><a href="#">Search</a></li>
 				<li><a href="#">Explore</a></li>
 				<li><a href="#">WPC Forum</a></li>
 			</ul>
-			<ul class="nav">
+			<ul class="user-nav">
 				<li><a href="/home">Home</a></li>
 				<li><a href="/myStudio">MyStudio</a></li>
 				<li><a href="/logout">Logout</a></li>
 			</ul>
 		</div>
+
+		{%block pageHeader%}
+		<div class="headerbar">
+			<div class="header">
+				<a href="/myStudio"><h1>{{username}}</h1></a>
+			</div>
+		</div>
+		{%endblock%}
 
 		{%block pageContent%}
 		{%endblock%}

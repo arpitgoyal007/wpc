@@ -1,8 +1,8 @@
-.headerbar {
+.navbar {
 	background-color: #f7f7f7;
 }
 
-.header {
+.logo {
 	display: inline;
 }
 
@@ -14,15 +14,15 @@
 	display: inline;
 }
 
-.action {
+.wpc-nav {
 	display: inline;
 }
 
-.nav {
+.user-nav {
 	display: inline;
 }
 
-.headerbar li {
+.navbar li {
 	font-size: 20px;
 	display: inline;
 	padding-right: 3px;
@@ -31,6 +31,6 @@
 	border-left: 1px solid #000000;
 }
 
-.headerbar li a {
+.navbar li a {
 	color: #000000;
 }

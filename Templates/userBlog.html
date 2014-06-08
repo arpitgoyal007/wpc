@@ -1,0 +1,18 @@
+{%extends "userStudio.html"%}
+
+{%block pageContent%}
+{%for b in blogs%}
+<div class="post">
+	<div class="post-heading">
+		<div class="post-title">
+			<a href="/usr/{{userid}}/blog/blg/{{b.key.id()}}"><h3>{{b.title}}</h3></a>
+		</div>
+		<div class="post-date">
+			{{b.created.strftime("%b %d, %Y")}}
+		</div>
+	<div class="post-content">
+		<pre>{{b.content}}</pre>
+	</div>
+</div>
+{%endfor%}
+{%endblock%}

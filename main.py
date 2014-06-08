@@ -196,11 +196,11 @@ class MyBlogHandler(PageHandler):
 		except:
 			self.pageError()
 
-class BlogPermalinkHandler(PageHandler):
+class MyBlogPermalinkHandler(PageHandler):
 	def get(self, resource):
 		try:
 			blog = Blog.get_by_id(int(resource), parent=self.user.key)
-			self.render('blogPermalink.html', username=self.user.username, blog=blog)
+			self.render('myBlogPermalink.html', username=self.user.username, blog=blog)
 		except:
 			self.pageError()
 
@@ -220,11 +220,11 @@ class MyGalleryHandler(PageHandler):
 		except:
 			self.pageError()
 
-class ImagePermalinkHandler(PageHandler):
+class MyImagePermalinkHandler(PageHandler):
 	def get(self, resource):
 		try:
 			pic = Picture.get_by_id(int(resource), parent=self.user.key)
-			self.render('imagePermalink.html', username=self.user.username, pic=pic)
+			self.render('myImagePermalink.html', username=self.user.username, pic=pic)
 		except:
 			self.pageError()
 
@@ -268,6 +268,57 @@ class ImageServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
 		except:
 			self.pageError()
 
+class UserPageHandler(PageHandler):
+	def get(self, user_resource):
+		try:
+			self.redirect('/usr/%s/studio' % user_resource)
+		except:
+			self.pageError()
+
+class UserStudioHandler(PageHandler):
+	def get(self, user_resource):
+		try:
+			user = User.get_by_id(user_resource)
+			self.render('userStudio.html', username=user.username, userid=user_resource)
+		except:
+			self.pageError()
+
+class UserBlogHandler(PageHandler):
+	def get(self, user_resource):
+		try:
+			user = User.get_by_id(user_resource)
+			blogs = Blog.query_book(user.key).fetch()
+			self.render('userBlog.html', username=user.username, userid=user_resource, blogs=blogs)
+		except:
+			self.pageError()
+
+class UserBlogPermalinkHandler(PageHandler):
+	def get(self, user_resource, post_resource):
+		try:
+			user = User.get_by_id(user_resource)
+			blog = Blog.get_by_id(int(post_resource), parent=user.key)
+			self.render('userBlogPermalink.html', username=user.username, userid=user_resource, blog=blog)
+		except:
+			self.pageError()
+
+class UserGalleryHandler(PageHandler):
+	def get(self, user_resource):
+		try:
+			user = User.get_by_id(user_resource)
+			pictures = Picture.query_book(user.key).fetch()
+			self.render('userGallery.html', username=user.username, userid=user_resource, pictures=pictures)
+		except:
+			self.pageError()
+
+class UserImagePermalinkHandler(PageHandler):
+	def get(self, user_resource, post_resource):
+		#try:
+			user = User.get_by_id(user_resource)
+			pic = Picture.get_by_id(int(post_resource), parent=user.key)
+			self.render('userImagePermalink.html', username=user.username, userid=user_resource, pic=pic)
+		#except:
+		#	self.pageError()
+
 class LogoutHandler(PageHandler):
 	def get(self):
 		self.logout()
@@ -278,10 +329,16 @@ app = webapp2.WSGIApplication([
 			('/home', HomeHandler),
 			('/myStudio', MyStudioHandler),
 			('/myBlog', MyBlogHandler),
-			('/myBlog/blg/([^/]+)', BlogPermalinkHandler),
+			('/myBlog/blg/([^/]+)', MyBlogPermalinkHandler),
 			('/myGallery', MyGalleryHandler),
-			('/myGallery/img/([^/]+)', ImagePermalinkHandler),
+			('/myGallery/img/([^/]+)', MyImagePermalinkHandler),
 			('/uploadImage', ImageUploadHandler),
 			('/serveImage/([^/]+)', ImageServeHandler),
+			('/usr/([^/]+)', UserPageHandler),
+			('/usr/([^/]+)/studio', UserStudioHandler),
+			('/usr/([^/]+)/blog', UserBlogHandler),
+			('/usr/([^/]+)/blog/blg/([^/]+)', UserBlogPermalinkHandler),
+			('/usr/([^/]+)/gallery', UserGalleryHandler),
+			('/usr/([^/]+)/gallery/img/([^/]+)', UserImagePermalinkHandler),
 			('/logout', LogoutHandler)
 			], debug=True)

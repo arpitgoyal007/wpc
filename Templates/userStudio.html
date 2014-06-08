@@ -1,0 +1,24 @@
+{%extends "home.html"%}
+
+{%block pageHeader%}
+<div class="headerbar">
+	<div class="header">
+		<a href="/usr/{{userid}}/studio"><h1>{{username}}</h1></a>
+	</div>
+</div>
+{%endblock%}
+
+{%block pageContent%}
+<div class="container">
+	<a href="#">Profile</a>
+</div>
+<div class="container">
+	<a href="/usr/{{userid}}/gallery">Gallery</a>
+</div>
+<div class="container">
+	<a href="/usr/{{userid}}/blog">Blog</a>
+</div>
+<div class="container">
+	<a href="#">MyTopics</a>
+</div>
+{%endblock%}
