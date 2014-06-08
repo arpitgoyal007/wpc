@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>World Photographers Club</title>
+  		{%block pageStyle%}
+  		<link rel="stylesheet" type="text/css" href="/Stylesheets/home.css">
+  		{%endblock%}
+	</head>
+	<body>
+		<div class="headerbar">
+			<div class="header">
+				<h1><a href="/home">{{username}}</a></h1>
+			</div>
+			<ul class="action">
+				<li><a href="#">Search</a></li>
+				<li><a href="#">Explore</a></li>
+				<li><a href="#">WPC Forum</a></li>
+			</ul>
+			<ul class="nav">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/myStudio">MyStudio</a></li>
+				<li><a href="/logout">Logout</a></li>
+			</ul>
+		</div>
+
+		{%block pageContent%}
+		{%endblock%}
+
+	</body>
+</html>

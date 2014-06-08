@@ -1,0 +1,27 @@
+{%extends "home.html"%}
+
+{%block pageContent%}
+<div class="newPost">
+	<button type="button">New Picture</button>
+	<form action="{{upload_url}}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="formType" value="newPost">
+		<label>
+			Caption
+			<div><input type="text" name="caption" value="{{caption}}"></div>
+		</label>
+		<label>
+			Upload Picture
+			<div><input type="file" name="image"></div>
+		</label>
+		<div class="error">{{submitError}}</div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
+<hr>
+{%for p in pictures%}
+<div class="post">
+	<div><a href="/myGallery/img/{{p.key.id()}}"><img src="/serveImage/{{p.blobKey}}" alt="image"></a></div>
+	<div><h3>{{p.caption}}</h3></div>
+</div>
+{%endfor%}
+{%endblock%}

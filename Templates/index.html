@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>World Photographers Club</title>
+  		<link rel="stylesheet" type="text/css" href="/Stylesheets/main.css">
+	</head>
+	<body>
+		<div class="headerbar">
+			<div class="header">
+				<h1><a href="#">World Photographers Club</a></h1>
+			</div>
+			<ul class="action">
+				<li><a href="#">Signup</a></li>
+				<li><a href="#">Explore</a></li>
+			</ul>
+			<ul class="nav">
+				<li><a href="#">Search</a></li>
+				<li><a href="#">Featured</a></li>
+				<li><a href="#">WPC Network</a></li>
+				<li><a href="#">Login</a></li>
+			</ul>
+		</div>
+		<div class="menubar">
+			<ul>
+				<li><a href="#">News Feed</a></li>
+				<li><a href="#">WPC Forum</a></li>
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">Support/FAQ</a></li>
+			</ul>
+		</div>
+		<div class="signup">
+			<h3>Signup</h3>
+			<form method="post">
+				<input type="hidden" name="formType" value="signup">
+				<label>
+					Name
+					<div><input type="text" name="username" value="{{username}}"></div>
+				</label>
+				<label>
+					Email
+					<div><input type="text" name="email" value="{{signupEmail}}"></div>
+				</label>
+				<label>
+					Password
+					<div><input type="password" name="password"></div>
+				</label>
+				<label>
+					Re-enter Password
+					<div><input type="password" name="verifyPassword"></div>
+				</label>
+				<div class="error">{{signupError}}</div>
+				<div><input type="submit" value="Signup"></div>
+			</form>
+		</div>
+		<div class="signin">
+			<h3>Signin</h3>
+			<form method="post">
+				<input type="hidden" name="formType" value="signin">
+				<label>
+					Email
+					<div><input type="text" name="email" value="{{signinEmail}}"></div>
+				</label>
+				<label>
+					Password
+					<div><input type="password" name="password"></div>
+				</label>
+				<div class="error">{{signinError}}</div>
+				<div><input type="submit" value="Login"></div>
+			</form>
+		</div>
+	</body>
+</html>

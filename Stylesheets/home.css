@@ -1,0 +1,36 @@
+.headerbar {
+	background-color: #f7f7f7;
+}
+
+.header {
+	display: inline;
+}
+
+.header h1 {
+	color: #ff0f0f;
+	font-family: 'Shift', sans-serif;
+	font-size: 48px;
+	font-weight: bold;
+	display: inline;
+}
+
+.action {
+	display: inline;
+}
+
+.nav {
+	display: inline;
+}
+
+.headerbar li {
+	font-size: 20px;
+	display: inline;
+	padding-right: 3px;
+	padding-left: 3px;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+}
+
+.headerbar li a {
+	color: #000000;
+}
