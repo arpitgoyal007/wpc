@@ -30,6 +30,12 @@
 	<div class="post-content">
 		<pre>{{b.content}}</pre>
 	</div>
+	<div class="post-action">
+		<form action="/myBlog/blg/{{b.key.id()}}" method="post">
+			<input type="hidden" name="actionType" value="delete">
+			<div><input type="submit" value="Delete"></div>
+		</form>
+	</div>
 </div>
 {%endfor%}
 {%endblock%}

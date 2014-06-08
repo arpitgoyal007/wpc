@@ -34,7 +34,7 @@ class User(ndb.Model):
 	"""Models a WPC user"""
 	username = ndb.StringProperty(required=True)
 	email = ndb.StringProperty(required=True)
-	password = ndb.StringProperty(required=True, indexed=False)
+	password_hash = ndb.StringProperty(required=True, indexed=False)
 
 class Album(ndb.Model):
 	"""Models an album in WPC"""
@@ -119,7 +119,8 @@ class MainHandler(PageHandler):
 				if email and password:
 					user = User.get_by_id(email)
 					if user:
-						if password == user.password:
+					#	if password == user.password:
+						if utils.validPassword(email, password, user.password_hash):
 						#	userinfoCookieVal = str("email="+email)
 						#	self.response.headers.add_header('Set-Cookie', str("userinfo="+utils.SecureCookieVal("userinfo", userinfoCookieVal)))
 						#	self.response.headers.add_header('Set-Cookie', str("userinfo=email="+email))
@@ -145,7 +146,8 @@ class MainHandler(PageHandler):
 						errorMsg = "Account already exists for this Email ID!"
 						self.render('index.html', username=username, signupEmail=email, signupError=errorMsg)
 					else:
-						user = User(id=email, username=username, email=email, password=password)
+						user = User(id=email, username=username, email=email)
+						user.password_hash = utils.hashPassword(email, password)
 						user.put()
 					#	self.response.headers.add_header('Set-Cookie', str("userinfo=email="+email))
 					#	self.response.headers.add_header('Set-Cookie', str("userinfo="+utils.SecureCookieVal("userinfo", userinfoCookieVal)))

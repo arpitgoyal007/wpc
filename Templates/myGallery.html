@@ -31,6 +31,12 @@
 	<div class="post-content">
 		<a href="/myGallery/img/{{p.key.id()}}"><img src="/serveImage/{{p.blobKey}}" alt="image"></a>
 	</div>
+	<div class="post-action">
+		<form action="/myGallery/img/{{p.key.id()}}" method="post">
+			<input type="hidden" name="actionType" value="delete">
+			<div><input type="submit" value="Delete"></div>
+		</form>
+	</div>
 </div>
 {%endfor%}
 {%endblock%}

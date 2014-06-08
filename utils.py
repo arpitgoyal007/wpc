@@ -1,5 +1,8 @@
 import re
+import random
+import hashlib
 import hmac
+from string import letters
 
 COOKIE_USERINFO_SECRET = "userinfosecret"
 COOKIE_DEFAULT_SECRET = "defaultsecret"
@@ -37,3 +40,15 @@ def checkSecureCookieVal(cookieName, secureCookieVal):
 		cookieValHash = secureCookieValList[1]
 		return hashCookieVal(secret, cookieVal) == cookieValHash
 
+def makePasswordSalt(length=5):
+	return "".join(random.choice(letters) for x in xrange(length))
+
+def hashPassword(userId, userPwd, salt=None):
+	if not salt:
+		salt = makePasswordSalt()
+	pwdHash = hashlib.sha256(userId + userPwd + salt).hexdigest()
+	return "%s,%s" % (salt, pwdHash)
+
+def validPassword(userId, userPwd, securePwd):
+	salt = securePwd.split(',')[0]
+	return hashPassword(userId, userPwd, salt) == securePwd
