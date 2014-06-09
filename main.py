@@ -65,6 +65,12 @@ class Blog(ndb.Model):
 		return cls.query(ancestor=ancestor_key).order(-cls.updated)
 
 class PageHandler(webapp2.RequestHandler):
+	def get(self):
+		self.redirect('/default')
+
+	def post(self):
+		self.redirect('/default')
+
 	def write(self, *a, **kw):
 		self.response.out.write(*a, **kw)
 
@@ -348,6 +354,10 @@ class LogoutHandler(PageHandler):
 		self.logout()
 		self.redirect('/')
 
+class DefaultHandler(PageHandler):
+	def get(self, resource):
+		self.redirect('/')
+
 app = webapp2.WSGIApplication([
 			('/', MainHandler),
 			('/home', HomeHandler),
@@ -364,5 +374,6 @@ app = webapp2.WSGIApplication([
 			('/usr/([^/]+)/blog/blg/([^/]+)', UserBlogPermalinkHandler),
 			('/usr/([^/]+)/gallery', UserGalleryHandler),
 			('/usr/([^/]+)/gallery/img/([^/]+)', UserImagePermalinkHandler),
-			('/logout', LogoutHandler)
+			('/logout', LogoutHandler),
+			('/([^.]+)', DefaultHandler)
 			], debug=True)
