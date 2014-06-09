@@ -278,46 +278,70 @@ class UserPageHandler(PageHandler):
 class UserStudioHandler(PageHandler):
 	def get(self, user_resource):
 		try:
-			user = User.get_by_id(user_resource)
-			self.render('userStudio.html', username=user.username, userid=user_resource)
+			if self.user:
+				user = User.get_by_id(user_resource)
+				self.render('userStudio.html', username=user.username, userid=user_resource)
+			else:
+				user = User.get_by_id(user_resource)
+				self.render('userStudio.html', username=user.username, userid=user_resource)
 		except:
 			self.pageError()
 
 class UserBlogHandler(PageHandler):
 	def get(self, user_resource):
 		try:
-			user = User.get_by_id(user_resource)
-			blogs = Blog.query_book(user.key).fetch()
-			self.render('userBlog.html', username=user.username, userid=user_resource, blogs=blogs)
+			if self.user:
+				user = User.get_by_id(user_resource)
+				blogs = Blog.query_book(user.key).fetch()
+				self.render('userBlog.html', username=user.username, userid=user_resource, blogs=blogs)
+			else:
+				user = User.get_by_id(user_resource)
+				blogs = Blog.query_book(user.key).fetch()
+				self.render('userBlog.html', username=user.username, userid=user_resource, blogs=blogs)
 		except:
 			self.pageError()
 
 class UserBlogPermalinkHandler(PageHandler):
 	def get(self, user_resource, post_resource):
 		try:
-			user = User.get_by_id(user_resource)
-			blog = Blog.get_by_id(int(post_resource), parent=user.key)
-			self.render('userBlogPermalink.html', username=user.username, userid=user_resource, blog=blog)
+			if self.user:
+				user = User.get_by_id(user_resource)
+				blog = Blog.get_by_id(int(post_resource), parent=user.key)
+				self.render('userBlogPermalink.html', username=user.username, userid=user_resource, blog=blog)
+			else:
+				user = User.get_by_id(user_resource)
+				blog = Blog.get_by_id(int(post_resource), parent=user.key)
+				self.render('userBlogPermalink.html', username=user.username, userid=user_resource, blog=blog)
 		except:
 			self.pageError()
 
 class UserGalleryHandler(PageHandler):
 	def get(self, user_resource):
 		try:
-			user = User.get_by_id(user_resource)
-			pictures = Picture.query_book(user.key).fetch()
-			self.render('userGallery.html', username=user.username, userid=user_resource, pictures=pictures)
+			if self.user:	
+				user = User.get_by_id(user_resource)
+				pictures = Picture.query_book(user.key).fetch()
+				self.render('userGallery.html', username=user.username, userid=user_resource, pictures=pictures)
+			else:
+				user = User.get_by_id(user_resource)
+				pictures = Picture.query_book(user.key).fetch()
+				self.render('userGallery.html', username=user.username, userid=user_resource, pictures=pictures)
 		except:
 			self.pageError()
 
 class UserImagePermalinkHandler(PageHandler):
 	def get(self, user_resource, post_resource):
-		#try:
-			user = User.get_by_id(user_resource)
-			pic = Picture.get_by_id(int(post_resource), parent=user.key)
-			self.render('userImagePermalink.html', username=user.username, userid=user_resource, pic=pic)
-		#except:
-		#	self.pageError()
+		try:
+			if self.user:
+				user = User.get_by_id(user_resource)
+				pic = Picture.get_by_id(int(post_resource), parent=user.key)
+				self.render('userImagePermalink.html', username=user.username, userid=user_resource, pic=pic)
+			else:
+				user = User.get_by_id(user_resource)
+				pic = Picture.get_by_id(int(post_resource), parent=user.key)
+				self.render('userImagePermalink.html', username=user.username, userid=user_resource, pic=pic)
+		except:
+			self.pageError()
 
 class LogoutHandler(PageHandler):
 	def get(self):
