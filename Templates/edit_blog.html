@@ -1,0 +1,18 @@
+{%extends "index_user.html"%}
+
+{%block pageContent%}
+<div class="newPost">
+	<form method="post">
+		<label>
+			Title
+			<div><input type="text" name="title" value="{{title}}"></div>
+		</label>
+		<label>
+			Content
+			<div><textarea name="content">{{content}}</textarea></div>
+		</label>
+		<div class="error">{{submitError}}</div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
+{%endblock%}

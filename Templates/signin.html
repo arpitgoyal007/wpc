@@ -1,0 +1,42 @@
+{%extends "index.html"%}
+
+{%block pageContent%}
+<div class="carousel-caption">
+	<h3>Signup</h3>
+	<form method="post" action="/signup">
+		<label>
+			Name
+			<div><input type="text" name="name" value="{{name}}"></div>
+		</label>
+		<label>
+			Email
+			<div><input type="text" name="email" value="{{signupEmail}}"></div>
+		</label>
+		<label>
+			Password
+			<div><input type="password" name="password"></div>
+		</label>
+		<label>
+			Re-enter Password
+			<div><input type="password" name="verifyPassword"></div>
+		</label>
+		<div class="error">{{signupError}}</div>
+		<div><input type="submit" value="Signup"></div>
+	</form>
+</div>
+<div class="carousel-caption">
+	<h3>Signin</h3>
+	<form method="post" action="/login">
+		<label>
+			Email
+			<div><input type="text" name="email" value="{{signinEmail}}"></div>
+		</label>
+		<label>
+			Password
+			<div><input type="password" name="password"></div>
+		</label>
+		<div class="error">{{signinError}}</div>
+		<div><input type="submit" value="Login"></div>
+	</form>
+</div>
+{%endblock%}

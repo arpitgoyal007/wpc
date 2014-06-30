@@ -1,0 +1,22 @@
+{%extends "home.html"%}
+
+{%block pageContent%}
+<div class="post">
+	<div class="post-heading">
+		<div class="post-title">
+			<h3>{{blog.title}}</h3>
+		</div>
+		<div class="post-date">
+			{{blog.created.strftime("%b %d, %Y")}}
+		</div>
+	<div class="post-content">
+		<pre>{{blog.content | safe}}</pre>
+	</div>
+	<div class="post-action">
+		<form method="post">
+			<input type="hidden" name="actionType" value="delete">
+			<div><input type="submit" value="Delete"></div>
+		</form>
+	</div>
+</div>
+{%endblock%}

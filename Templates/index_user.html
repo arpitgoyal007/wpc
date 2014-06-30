@@ -1,0 +1,83 @@
+{%extends "index.html"%}
+{%set siteName = 'World Photographers Club'%}
+		{%block navBar%}
+		<hr>NavBar<hr>
+		<div class="navbar">
+			<div class="container">
+				<div class="nav-header">
+					<div><img src="/images/icon.png" alt="icon"></div>
+					<div><a href="/"><h1>{{siteName}}</h1></a></div>
+				</div>
+			</div>
+			<ul class="container">
+				<li><a href="#">Explore</a></li>
+				<li><a href="#forum">Forum</a></li>
+				<li>
+					<form class="nav-form" method="get" action="#search">
+						<input class="nav-search" type="text" name="q" placeholder="Search">
+					</form>
+				</li>
+			</ul>
+			<ul class="container">
+				<li><a href="/{{me.key.id()}}">{{me.name}}</a></li>
+				<li><a href="/">Home</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Notifications <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Notification 1</a></li>
+						<li><a href="#">Notification 2</a></li>
+						<li><a href="#">Notification 3</a></li>
+					</ul>
+				</li>
+				<li><a href="/logout">Logout</a></li>
+			</ul>
+		</div>
+		{%endblock%}
+
+		{%block headerBar%}
+		<hr>HeaderBar<hr>
+		<div class="headerbar">
+			<div class="container">
+				<div class="header-header">
+					<div><img src="/images/profile_pic.gif" alt="Profile photo"></div>
+					<div><a href="/{{me.key.id()}}"><h3>{{me.name}}</h3></a></div>
+					<div>Home</div>
+				</div>
+			</div>
+			<ul class="container">
+				<li><a href="/newphoto">Upload a photo</a></li>
+				<li><a href="/newblog">Write a blog</a></li>
+				<li><a href="#">Ask a question</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Create a group</a></li>
+						<li><a href="#">--------------</a></li>
+						<li><a href="#">--------------</a></li>
+					</ul>
+				</li>
+				<li><a href="#">My Favorites</a></li>
+			</ul>
+		</div>		
+		{%endblock%}
+
+		{%block menuBar%}
+		<hr>MenuBar<hr>
+		<div class="menubar">
+			<ul class="container">
+				<li class="menu-header">My Studio</li>
+				<li><a href="#">My Info</a></li>
+				<li><a href="/{{me.key.id()}}/photos">My Photos</a></li>
+				<li><a href="/{{me.key.id()}}/blogs">My Blogs</a></li>
+				<li><a href="#">My Questions</a></li>
+				<li><a href="#">My Answers</a></li>
+				<li><a href="#">My Topics</a></li>
+				<li><a href="#">My Stats</a></li>
+				<li class="divider"></li>
+				<li class="menu-header">My Groups</li>
+			</ul>
+		{%endblock%}
+
+		{%block pageContent%}
+		<hr>PageContent<hr>
+		{%endblock%}

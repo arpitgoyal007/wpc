@@ -9,14 +9,26 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /Stylesheets
-  static_dir: Stylesheets
+- url: /css
+  static_dir: new_css
 
-- url: /Images
-  static_dir: Images
+- url: /images
+  static_dir: images
+
+- url: /img 
+  static_dir: img
+
+- url: /js
+  static_dir: new_js
+
+- url: /fonts
+  static_dir: fonts
+
+- url: /bootstrap
+  static_dir: bootstrap-3.1.1-dist
 
 - url: .*
-  script: main.app
+  script: main2.app
 
 libraries:
 - name: webapp2

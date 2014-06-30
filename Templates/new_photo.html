@@ -1,0 +1,18 @@
+{%extends "index_user.html"%}
+
+{%block pageContent%}
+<div class="newPost">
+	<form action="{{uploadUrl}}" method="post" enctype="multipart/form-data">
+		<label>
+			Caption
+			<div><input type="text" name="caption" value="{{caption}}"></div>
+		</label>
+		<label>
+			Upload Picture
+			<div><input type="file" name="image"></div>
+		</label>
+		<div class="error">{{submitError}}</div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
+{%endblock%}

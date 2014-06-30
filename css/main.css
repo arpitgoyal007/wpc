@@ -1,0 +1,68 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, pre, a, img, b, em, ul, li, table, tr, th, td, form, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	text-decoration: none;
+} 
+
+.navbar {
+	background-color: #000000;
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.navbar * {
+	display: inline-block;
+	color: #ffffff;
+	height: 100%;
+	line-height: 50px;
+	font-family: 'Shift', sans-serif;
+	font-size: 30px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.logo {
+	margin-left: 10%;
+}
+
+.navbar h1 {
+	color: #ff0000;
+	font-weight: bold;
+}
+
+.navbar ul {
+	margin-left: 5%;
+}
+
+.navbar li {
+	padding-right: 3px;
+	padding-left: 3px;
+	border-right: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+}
+
+.menubar {
+	display: inline-block;
+	position: absolute;
+	top: 100px;
+	left: 10px;
+}
+
+.signup {
+	display: inline-block;
+	position: absolute;
+	top: 100px;
+	left: 700px;
+}
+
+.signin {
+	display: inline-block;
+	position: absolute;
+	top: 100px;
+	left: 1400px;
+}

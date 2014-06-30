@@ -1,0 +1,81 @@
+{%extends "user_studio.html"%}
+
+{%block title%}
+Upload Photos | WPC
+{%endblock%}
+
+{%block styleSheets%}
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blueimp-gallery.min.css">
+<link rel="stylesheet" href="/css/jquery.fileupload.css">
+<link rel="stylesheet" href="/css/jquery.fileupload-ui.css">
+{%endblock%}
+
+{%block pageContent%}
+<form id="photoupload" action="{{uploadUrl}}" method="post" enctype="multipart/form-data">
+	<div class="column fileupload-buttonbar">
+		<div class="col-lg-10">
+			<!-- The fileinput-button span is used to style the file input field as button -->
+			<span class="btn btn-info fileinput-button">
+				<i class="glyphicon glyphicon-plus"></i>
+				<span>Select Files</span>
+				<input type="file" name="files" multiple>
+			</span>
+			<button type="submit" class="btn btn-success start">
+				<i class="glyphicon glyphicon-upload"></i>
+				<span>Start upload</span>
+			</button>
+			<button type="reset" class="btn btn-info cancel">
+				<i class="glyphicon glyphicon-ban-circle"></i>
+				<span>Cancel upload</span>
+			</button>
+			<button type="button" class="btn btn-info delete">
+				<i class="glyphicon glyphicon-trash"></i>
+				<span>Delete </span>
+				<input type="checkbox" class="toggle">
+			</button>
+			<div class="error" style="color:red;">{{submitError}}</div>
+			<!-- The global file processing state -->
+			<span class="fileupload-process"></span>
+		</div>
+		<!-- The global progress state -->
+		<div class="col-lg-5 fileupload-progress fade">
+			<!-- The global progress bar -->
+			<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+				<div class="progress-bar progress-bar-success" style="width:0%;"></div>
+			</div>
+			<!-- The extended global progress state -->
+			<div class="progress-extended">&nbsp;</div>
+		</div>
+	</div>
+	<!-- The table listing the files available for upload/download -->
+	<table role="presentation" class="table table-striped">
+		<tbody class="files">
+		</tbody>
+	</table>
+</form>
+{%endblock%}
+
+{%block javaScripts%}
+    <script src="../new_js/jquery-1.10.2.js"></script>
+    <script src="../new_js/bootstrap.min.js"></script>
+    <link href="../new_css/ustified-nav.css" rel="stylesheet">
+    <script src="../new_js/jquery.min.js"></script>
+    <script src="../new_js/vendor/jquery.ui.widget.js"></script>
+    <script src="../new_js/tmpl.min.js"></script>
+    <script src="../new_js/load-image.min.js"></script>
+    <script src="../new_js/canvas-to-blob.min.js"></script>
+    <script src="../new_js/jquery.blueimp-gallery.min.js"></script>
+    <script src="../new_js/jquery.iframe-transport.js"></script>
+    <script src="../new_js/jquery.fileupload.js"></script>
+    <script src="../new_js/jquery.fileupload-process.js"></script>
+    <script src="../new_js/jquery.fileupload-image.js"></script>
+    <script src="../new_js/jquery.fileupload-audio.js"></script>
+    <script src="../new_js/jquery.fileupload-video.js"></script>
+    <script src="../new_js/jquery.fileupload-validate.js"></script>
+    
+    <script src="../new_js/jquery.fileupload-ui.js"></script>
+
+    <script src="../new_js/main.js"></script>
+{%endblock%}

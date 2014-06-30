@@ -1,0 +1,18 @@
+{%extends "user_studio.html"%}
+
+{%block pageContent%}
+{%for b in blogs%}
+<div class="post">
+	<div class="post-heading">
+		<div class="post-title">
+			<a href="/blog/{{b.key.urlsafe()}}"><h3>{{b.title}}</h3></a>
+		</div>
+		<div class="post-date">
+			{{b.updated.strftime("%b %d, %Y")}}
+		</div>
+	<div class="post-content">
+		<pre>{{b.content}}</pre>
+	</div>
+</div>
+{%endfor%}
+{%endblock%}

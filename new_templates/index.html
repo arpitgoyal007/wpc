@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>
+			{%block title%}
+			{{title}}
+			{%endblock%}
+		</title>
+		<link rel="icon" href="/images/wpc_app_icon.png">
+
+		{%block styleSheets%}
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/cover.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="/css/carousel.css" rel="stylesheet">
+		<link href="/css/font.css" rel="stylesheet">
+		{%endblock%}
+	</head>
+<!-- NAVBAR
+================================================== -->
+	<body>
+		<nav class="navbar navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/" style="font-family:verdana;color:#ab1234;font-size:30px;margin-left:15px;margin-right:15px;"><b><em>wpc</em></b></a>
+				</div>
+							
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					{%block wpcNavLinks%}
+					<ul class="nav navbar-nav">
+						<li><a href="#">Photos</a></li>
+						<li><a href="#">Blogs</a></li>
+						<li><a href="#">Forum</a></li>
+						<li><a href="#"><button type="button" class="btn btn-danger btn-sm" style="margin-top:-5px;">EXPLORE</button></a></li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search" action="/search" method="get">
+						<div class="form-group">
+							<input type="text" class="form-control" name="q" placeholder="Search for photos, photographers and more" size="42">
+						</div>
+					</form>
+					{%endblock%}
+		
+					{%block userNavLinks%}
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/signin"><button type="button" class="btn btn-danger btn-sm" style="margin-top:-5px;">SIGN UP</button></a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="form_signin_container">
+										<form class="form-signin" role="form" onsubmit="return validateLoginForm()" action="/login" method="post" name="login_form">
+											<h2 class="form-signin-heading">Please sign in</h2>
+											<input type="text" name="email" class="form-control" placeholder="Email address">
+											<input type="password" name="password" class="form-control" placeholder="Password">
+											<label><input type="checkbox" name="remember" value="remember-me"> Remember Me</label>
+											<button class="btn btn-lg btn-success btn-block" type="submit">Log In</button>
+										</form>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li><a href="#">Forgot Password</a></li>
+							</ul>
+						</li>
+					</ul>
+					{%endblock%}
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+ 
+		
+
+		<!-- Carousel
+		================================================== -->
+		{%block carousel%}
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<div class="carousel-caption carousel-signup">
+				<h1 style="text-align:center;">Aloha !!<br><em>World Photographers Club</em></h1>
+				<div class="signup_buttons">
+					<a href="/signin"><button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-envelope"></span> <em>Sign Up with Email</em></button></a>
+					<a href="#"><button type="button" class="btn btn-primary btn-lg"><i class="fa fa-facebook"></i> <em>Sign In with Facebook</em></button></a>
+				</div>
+			</div>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="/img/Brooklyn_Bridge.jpg" alt="First slide"/>
+					<div class="container">
+						<div class="carousel-caption">
+							<p>Photographers Name</p>
+							<button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-thumbs-up"></span> Upvote</button>
+							<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-pushpin"></span> Favorite</button>
+							<button type="button" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-star"></span> Follow</button>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<img src="/img/DSC_1582.jpg" alt="Second slide"/>
+					<div class="container">
+						<div class="carousel-caption">
+							<p>Photographers Name</p>
+							<button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-thumbs-up"></span> Upvote</button>
+							<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-pushpin"></span> Favorite</button>
+							<button type="button" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-star"></span> Follow</button>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<img src="/img/DSC_1737.jpg" alt= "Third slide"/>
+					<div class="container">
+						<div class="carousel-caption">
+							<p>Photographers Name</p>
+							<button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-thumbs-up"></span> Upvote</button>
+							<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-pushpin"></span> Favorite</button>
+							<button type="button" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-star"></span> Follow</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+		</div>
+		{%endblock%}
+		<!-- /.carousel -->
+		
+		{%block pageContent%}
+		<!-- Marketing messaging and featurettes
+		================================================== -->
+		<!-- Wrap the rest of the page in another container to center all the content. -->
+		<br><br>
+		<div class="container marketing">
+
+			<!-- Three columns of text below the carousel -->
+			<div class="row">
+				<div class="col-lg-4">
+					<img class="img-circle" src="/js/holder.js/140x140" alt="Generic placeholder image">
+					<h2>Heading</h2>
+					<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+					<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4">
+					<img class="img-circle" data-src="/js/holder.js/140x140" alt="Generic placeholder image">
+					<h2>Heading</h2>
+					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+					<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4">
+					<img class="img-circle" data-src="/js/holder.js/140x140" alt="Generic placeholder image">
+					<h2>Heading</h2>
+					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+				</div><!-- /.col-lg-4 -->
+			</div><!-- /.row -->
+
+
+			<!-- START THE FEATURETTES -->
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				</div>
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive" data-src="/js/holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive" data-src="/js/holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+				<div class="col-md-7">
+					<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				</div>
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive" data-src="/js/holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<!-- /END THE FEATURETTES -->
+			{%endblock%}
+
+			<!-- FOOTER -->
+			<footer>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<ul class="list-inline">
+							<li><a href="https://www.facebook.com/pages/Anurag-Mathurs-Photography/215979155096125?ref=hl&ref_type=bookmark"><i class="fa fa-facebook fa-3x"></i></a>
+							</li>
+							<li><a href="www.twitter.com"><i class="fa fa-twitter fa-3x"></i></a>
+							</li>
+							<li><a href="www.dribble.com"><i class="fa fa-google-plus-square fa-3x"></i></a>
+							</li>
+							<li><a href="www.dribble.com"><i class="fa fa-pinterest fa-3x"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<p class="pull-right back-to-top"><a href="#">Back to top</a></p>
+				<p>&copy; 2014 World Photographer's Club &middot; <a href="#">Privacy</a> &middot; <a href="#"> Terms </a>&middot; <a href="#"> Contact Us</a></p>
+			</footer>
+			
+		</div><!-- /.container -->
+
+		{%block javaScripts%}
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type ="text/javascript" src="/js/login.js"> </script>
+		<script type ="text/javascript" src="/js/jquery.min.js"></script>
+		<script type ="text/javascript" src="/js/bootstrap.min.js"></script>
+		<script type ="text/javascript" src="/js/docs.min.js"></script>
+		
+		<script>
+			jQuery(document).ready(function() {
+				var offset = 220;
+				var duration = 1500;
+				jQuery(window).scroll(function() {
+					if (jQuery(this).scrollTop() > offset) {
+						jQuery('.back-to-top').fadeIn(duration);
+					} else {
+						jQuery('.back-to-top').fadeOut(duration);
+					}
+				});
+				jQuery('.back-to-top').click(function(event) {
+					event.preventDefault();
+					jQuery('html, body').animate({scrollTop: 0}, duration);
+					return false;
+				})
+			});
+		</script>
+		{%endblock%}
+	</body>
+</html>

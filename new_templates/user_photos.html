@@ -1,0 +1,19 @@
+{%extends "user_studio.html"%}
+
+{%block pageContent%}
+{%for p in photos%}
+<div class="post">
+	<div class="post-heading">
+		<div>
+			<h3>{{p.caption}}</h3>
+		</div>
+		<div>
+			{{p.updated.strftime("%b %d, %Y")}}
+		</div>
+	</div>
+	<div class="post-content">
+		<a href="/photo/{{p.key.urlsafe()}}"><img src="/servephoto/{{p.blobKey}}" alt="photo"></a>
+	</div>
+</div>
+{%endfor%}
+{%endblock%}

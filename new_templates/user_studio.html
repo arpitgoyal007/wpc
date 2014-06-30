@@ -1,0 +1,221 @@
+{%if me%}
+		{%extends "index_user.html"%}
+{%else%}
+		{%extends "index.html"%}
+{%endif%}
+
+{%block title%}
+{{user.name}} | WPC
+{%endblock%}
+
+{%block styleSheets%}
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.css" rel="stylesheet">
+<!-- Add custom CSS here -->
+<link href="/css/my_studio.css" rel="stylesheet">
+<link href="/css/font.css" rel="stylesheet">
+{%endblock%}
+
+{%block carousel%}
+{%endblock%}
+
+{%block pageContent%}
+<!-- Full Page Image Header Area -->
+<div id="top" class="header">
+	<div class="vert-text">
+		<img src="img/Artist_1.jpg" alt="Profile Image" class="img-circle" width="90px">
+		<h3>{{user.name}}</h3>
+		<a href="my_studio.html" class="btn btn-success btn-lg">My Portfolio</a>
+	</div>
+</div>
+<!-- /Full Page Image Header Area -->
+<!-- Services -->
+<div id="services" class="services">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<ul class="list-inline">
+					<li><a href="https://www.facebook.com/pages/Anurag-Mathurs-Photography/215979155096125?ref=hl&ref_type=bookmark"><i class="fa fa-facebook fa-3x"></i></a>
+					</li>
+					<li><a href="www.twitter.com"><i class="fa fa-twitter fa-3x"></i></a>
+					</li>
+					<li><a href="www.dribble.com"><i class="fa fa-dribbble fa-3x"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 text-center">
+				<h2>Interests</h2>
+				<hr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-2 text-center">
+				<div class="service-item">
+					<i class="service-icon fa fa-rocket"></i>
+					<h4>Travel</h4>
+					<p>Did your navigation system shut down in the middle of that asteroid field? We can repair any dings and scrapes to your spacecraft!</p>
+				</div>
+			</div>
+			<div class="col-md-2 text-center">
+				<div class="service-item">
+					<i class="service-icon fa fa-magnet"></i>
+					<h4>WildLife Photography</h4>
+					<p>Need to know how magnets work? Our problem solving solutions team can help you identify problems and conduct exploratory research.</p>
+				</div>
+			</div>
+			<div class="col-md-2 text-center">
+				<div class="service-item">
+					<i class="service-icon fa fa-shield"></i>
+					<h4>Fashion Photography</h4>
+					<p>Planning a time travel trip to the middle ages? Preserve the space time continuum by blending in with period accurate armor and weapons.</p>
+				</div>
+			</div>
+			<div class="col-md-2 text-center">
+				<div class="service-item">
+					<i class="service-icon fa fa-pencil"></i>
+					<h4>Potraits</h4>
+					<p>We've been voted the best pencil sharpening service for 10 consecutive years. If you have a pencil that feels dull, we'll get it sharp!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Services -->
+<!-- Intro -->
+<div id="about" class="intro">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h2></h2>
+				<p class="lead">Place for Ads <br><a target="_blank" href="http://www.worldphotographersclub.com/">worldphotographersclub</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Intro -->
+<!-- Callout -->
+<div class="callout">
+	<div class="vert-text">
+		<h1>About the Photographer</h1>
+	</div>
+</div>
+<!-- /Callout -->
+<!-- Portfolio -->
+<div id="my_photos" class="portfolio main">
+	<nav class="navbar" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="">My Photos</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-info">Search</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#top">Back to top</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="container-fluid grid-custom">
+		<div class="col-md-3">
+			<div class="row"><img src="img/AnuragMathur-1.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/AnuragMathur-2.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/Artist_1.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/Artists_2.jpg" alt="" class="img-responsive"></div>
+		</div>
+		<div class="col-md-3">
+			<div class="row"><img src="img/asli_India_4_WMedited.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/faith_disrupted.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/asli_India_WM.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/Beach_Diaries.jpg" alt="" class="img-responsive"></div>
+		</div>
+		<div class="col-md-3">
+			<div class="row"><img src="img/Brooklyn_Bridge.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/DSC_1556.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/DSC_1582.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/DSC_1596.jpg" alt="" class="img-responsive"></div>
+		</div>
+		<div class="col-md-3">
+			<div class="row"><img src="img/DSC_1737.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/Overload.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/Reflections.jpg" alt="" class="img-responsive"></div>
+			<div class="row"><img src="img/Shadow_of_the_Empire3.jpg" alt="" class="img-responsive"></div>
+		</div>
+	</div>
+	<button type="button" class="btn btn-info btn-sm col-xs-offset-6"> Load More</button>
+</div>
+<!-- /Portfolio -->
+<br>
+<!-- Call to Action -->
+<div id= "my_portfolios" class="call-to-action">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h3>My Portfolios</h3>
+				<a href="#" class="btn btn-lg btn-success">Travel Photography</a>
+				<a href="#" class="btn btn-lg btn-warning">Potraits</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Call to Action -->
+<!-- Map -->
+<div id="contact" class="map">
+	<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+		<br />
+		<small>
+			<a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+		</small>
+	</iframe>
+</div>
+<!-- /Map -->
+{%endblock%}
+
+{%block javaScripts%}
+<!-- JavaScript -->
+<script src="/js/jquery-1.10.2.js"></script>
+<script src="/js/bootstrap.js"></script>
+<!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+<script>
+	$("#menu-close").click(function(e) {
+		e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+	});
+</script>
+<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#sidebar-wrapper").toggleClass("active");
+	});
+</script>
+<script>
+	$(function() {
+		$('a[href*=#]:not([href=#])').click(function() {
+			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+				var target = $(this.hash);
+				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+				if (target.length) {
+					$('html,body').animate({
+						scrollTop: target.offset().top
+					}, 1000);
+					return false;
+				}
+			}
+		});
+	});
+</script>
+{%endblock%}

@@ -1,0 +1,17 @@
+{%extends "user_studio.html"%}
+{%set user = me%}
+{%block pageContent%}
+<div class="newPost">
+	<form method="post">
+		{%for photo in photos%}
+		<div class="container">
+			<img src="/servephoto/{{photo.blobKey}}" alt="photo">
+			<div><input type="text" name="caption" placeholder="Say something about this photo" value="{{photo.caption}}"></div>
+			<div><textarea name="description" placeholder="Give details for this photo">{{photo.description}}</textarea></div>
+		</div>
+		{%endfor%}
+		<div class="error">{{submitError}}</div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
+{%endblock%}

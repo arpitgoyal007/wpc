@@ -1,0 +1,41 @@
+{%if me%}
+	{%extends "index_user.html"%}
+{%else%}
+	{%extends "index.html"%}
+{%endif%}
+
+{%block headerBar%}
+<hr>HeaderBar<hr>
+<div class="headerbar">
+	<div class="container">
+		<div class="header-header">
+			<div><img src="/images/profile_pic.gif" alt="Profile photo"></div>
+			<div><a href="/{{user.key.id()}}"><h3>{{user.name}}</h3></a></div>
+			<div>Studio</div>
+		</div>
+	</div>
+	<ul class="container">
+		<li><a href="#">Info</a></li>
+		<li><a href="/{{user.key.id()}}/photos">Photos</a></li>
+		<li><a href="/{{user.key.id()}}/blogs">Blogs</a></li>
+		<li><a href="#">Questions</a></li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Answers</a></li>
+				<li><a href="#">Topics</a></li>
+				<li><a href="#">Stats</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Favorites</a></li>
+	</ul>
+</div>		
+{%endblock%}
+
+{%block menuBar%}
+<hr>MenuBar<hr>
+{%endblock%}
+
+{%block pageContent%}
+<hr>PageContent<hr>
+{%endblock%}
