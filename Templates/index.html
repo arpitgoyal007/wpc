@@ -1,72 +1,58 @@
 <!DOCTYPE html>
 <html>
+	{%set siteName = 'WPC'%}
 	<head>
-  		<title>World Photographers Club</title>
-  		<link rel="stylesheet" type="text/css" href="/Stylesheets/main.css">
+  		<title>{{siteName}} | Connect, share, bring out the photographer in you!</title>
+  	<!--	<link rel="stylesheet" type="text/css" href="/css/main.css"> -->
 	</head>
 	<body>
-		<div class="headerbar">
-			<div class="header">
-				<h1><a href="#">World Photographers Club</a></h1>
+		{%block navBar%}
+		<hr>NavBar<hr>
+		<div class="navbar">
+			<div class="container">
+				<div class="nav-header">
+					<div><img src="/images/icon.png" alt="icon"></div>
+					<div><a href="#"><h1>{{siteName}}</h1></a></div>
+				</div>
 			</div>
-			<ul class="action">
-				<li><a href="#">Signup</a></li>
+			<ul class="container">
+				<li><a href="#photo">Photos</a></li>
+				<li><a href="#blog">Blogs</a></li>
+				<li><a href="#forum">Forum</a></li>
+				<li>
+					<form class="nav-form" method="get" action="#search">
+						<input class="nav-search" type="text" name="q" placeholder="Search">
+					</form>
+				</li>
+			</ul>
+			<ul class="container">
+				<li><button type="button"><a href="/signin">Signup</a></button></li>
 				<li><a href="#">Explore</a></li>
-			</ul>
-			<ul class="nav">
-				<li><a href="#">Search</a></li>
-				<li><a href="#">Featured</a></li>
-				<li><a href="#">WPC Network</a></li>
-				<li><a href="#">Login</a></li>
-			</ul>
-		</div>
-		<div class="menubar">
-			<ul>
-				<li><a href="#">News Feed</a></li>
-				<li><a href="#">WPC Forum</a></li>
-				<li><a href="#">Contact Us</a></li>
-				<li><a href="#">Support/FAQ</a></li>
+				<li><a href="#">Get Started</a></li>
+				<li><a href="#">{{siteName}} Network</a></li>
+				<li class="dropdown">
+					<a href="#">Login</a>
+					<form class="dropdown-form" method="post" action="/login">
+						<input type="text" name="email" placeholder="Email">
+						<input type="password" name="password" placeholder="Password">
+						<input type="submit" value="Login">
+					</form>
+				</li>
 			</ul>
 		</div>
-		<div class="signup">
-			<h3>Signup</h3>
-			<form method="post">
-				<input type="hidden" name="formType" value="signup">
-				<label>
-					Name
-					<div><input type="text" name="username" value="{{username}}"></div>
-				</label>
-				<label>
-					Email
-					<div><input type="text" name="email" value="{{signupEmail}}"></div>
-				</label>
-				<label>
-					Password
-					<div><input type="password" name="password"></div>
-				</label>
-				<label>
-					Re-enter Password
-					<div><input type="password" name="verifyPassword"></div>
-				</label>
-				<div class="error">{{signupError}}</div>
-				<div><input type="submit" value="Signup"></div>
-			</form>
-		</div>
-		<div class="signin">
-			<h3>Signin</h3>
-			<form method="post">
-				<input type="hidden" name="formType" value="signin">
-				<label>
-					Email
-					<div><input type="text" name="email" value="{{signinEmail}}"></div>
-				</label>
-				<label>
-					Password
-					<div><input type="password" name="password"></div>
-				</label>
-				<div class="error">{{signinError}}</div>
-				<div><input type="submit" value="Login"></div>
-			</form>
-		</div>
+		{%endblock%}
+
+		{%block headerBar%}
+		<hr>HeaderBar<hr>
+		{%endblock%}
+
+		{%block menuBar%}
+		<hr>MenuBar<hr>
+		{%endblock%}
+
+		{%block pageContent%}
+		<hr>PageContent<hr>
+		{%endblock%}
+
 	</body>
 </html>
